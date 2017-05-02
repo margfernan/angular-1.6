@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Ejemplo de productos  en Angular</title>
+    <link rel="stylesheet" href="css/app.css"/>
+</head>
+<body>
+<div ng-app="app" ng-controller="HttpGetController">
+    <button ng-click="GetAllData()">Get All Data</button> |
+    <hr />
+    <ul>
+        <li ng-repeat="d in Details">
+            {{ d.codigo + ' ' + d.abreviatura + ', ' + d.litros}}
+        </li>
+    </ul>
+    <p ng-bind="ResponseDetails"></p>
+    {{ResponseDetails}}
+</div>
+<!-- Agregamos angular para que funcione  -->
+<script src="lib/angular.js"></script>
+
+<!-- Importamos los archivos extras que vamos a usar -->
+<script src="js/app.js"></script>
+<script src="js/controller.js"></script>
+</body>
+</html>
