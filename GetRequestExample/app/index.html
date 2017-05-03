@@ -9,10 +9,8 @@
 <div ng-app="app" ng-controller="HttpGetController">
     <button ng-click="GetAllData()">Get All Data</button> |
     <hr />
-    <ul>
-        <li ng-repeat="d in Details">
-            {{ d.codigo + ' ' + d.abreviatura + ', ' + d.litros}}
-        </li>
+    <ul ng-repeat="d in Details">
+        <li>{{d.codigo}}+" "+{{d.abreviatura}}+" "+{{d.litros}}</li>
     </ul>
     <p ng-bind="ResponseDetails"></p>
     {{ResponseDetails}}

@@ -4,8 +4,9 @@
 var app = angular.module("app", []);
 app.controller("HttpGetController", function ($scope, $http) {
 
-    $scope.Details = [];
+
     $scope.GetAllData = function () {
+        $scope.Details = [];
         $http({
             method: 'GET',
             url: 'http://127.0.0.1:8080/jmobile/service/producto/list?idreparto=10',
@@ -13,13 +14,9 @@ app.controller("HttpGetController", function ($scope, $http) {
                 "Content-Type": "application/json"
             }
         }).then(function successCallback(response) {
-                alert(response);
-                $scope.Details = response;
-            angular.forEach($scope.Details, function (value, key) {
-                $scope.Details.push(value.codigo);
-            });
+                $scope.Details = response.data;
         }).then(function errorCallback(response) {
-               alert('error');
+
         });
     };
 });
