@@ -9,9 +9,29 @@
 <div ng-app="app" ng-controller="HttpGetController">
     <button ng-click="GetAllData()">Get All Data</button> |
     <hr />
-    <ul ng-repeat="d in Details">
+  <!--  <ul ng-repeat="d in Details">
         <li>{{d.codigo}}+" "+{{d.abreviatura}}+" "+{{d.litros}}</li>
     </ul>
+    -->
+    <div class="filtro">
+        <span class="buscarLibros">Buscar:</span>
+        <input ng-model="productoBuscado" class="filtroLibros">
+    </div>
+
+    <table class="tablaLibros">
+        <tr>
+            <th>Codigo</th>
+            <th>Abreviatura</th>
+            <th>Litros</th>
+        </tr>
+        <tr ng-repeat="d in Details | filter:productoBuscado">
+            <td>{{d.codigo}}</td>
+            <td>{{d.abreviatura}}</td>
+            <td>{{d.litros}}</td>
+        </tr>
+    </table>
+
+
     <p ng-bind="ResponseDetails"></p>
     {{ResponseDetails}}
 </div>
